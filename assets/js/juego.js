@@ -24,22 +24,37 @@
         especiales = ['A', 'J', 'Q', 'K'];
 
 
-    let puntosJugador = 0,
-        puntosComputadora = 0;
+    // let puntosJugador = 0,
+    //     puntosComputadora = 0;
+
+    let puntosJugadores = [];
 
     // Referencias del HTML
-    const btnPedir = document.querySelector('#btnPedir');
-    const btnDetener = document.querySelector('#btnDetener');
-    const btnNuevo = document.querySelector('#btnNuevo');
+    const btnPedir = document.querySelector('#btnPedir'),
+        btnDetener = document.querySelector('#btnDetener'),
+        btnNuevo = document.querySelector('#btnNuevo'),
 
-    const divCartasJugador = document.querySelector('#jugador-cartas');
-    const divCartasComputadora = document.querySelector('#computadora-cartas');
+        divCartasJugador = document.querySelector('#jugador-cartas'),
+        divCartasComputadora = document.querySelector('#computadora-cartas'),
 
-    const puntosHtml = document.querySelectorAll('small');
+        puntosHtml = document.querySelectorAll('small');
+
+
+    // Esta funcion inicializa el juego
+    const inicializarJuego = ( numJugadores = 2 ) => {
+       deck = crearDeck();
+       
+       for (let index = 0; index < numJugadores; index++) {
+        
+        puntosJugadores.push(0);
+        
+       }
+    };
 
 
     // Esta función crea un nuevo deck
     const crearDeck = () => {
+        deck = [];
 
         for (let i = 2; i <= 10; i++) {
             for (let tipo of tipos) {
@@ -53,9 +68,7 @@
             }
         }
 
-        deck = _.shuffle(deck);
-
-        return deck;
+        return _.shuffle(deck);
     };
 
     // Esta función me permite tomar una carta
@@ -64,8 +77,8 @@
         if (deck.length === 0) {
             throw 'No hay cartas en el deck';
         }
-        const carta = deck.pop();
-        return carta;
+
+        return deck.pop();
     };
 
     const valorCarta = (carta) => {
@@ -93,6 +106,7 @@
 
     };
 
+    const acumularPuntos = () => {};
 
     // Turno de la computadora
     const turnoComputadora = (puntosMinimos) => {
@@ -126,7 +140,6 @@
 
 
     };
-
 
     // Eventos
     btnPedir.addEventListener('click', () => {
@@ -191,11 +204,6 @@
         btnDetener.disabled = false;
 
     });
-
-
-
-
-    crearDeck();
 })();
 
 
