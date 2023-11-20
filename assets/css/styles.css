@@ -1,11 +1,11 @@
 html, body {
-
     margin: 0px;
     background-color: #2F4F30;
     color: white;
 }
 
-.title {
+
+.titulo {
     text-align: center;
     background-color: black;
     color: white;
@@ -13,9 +13,9 @@ html, body {
     font-size: 25px;
 }
 
-.card {
-    width: 150px;
+.carta {
     position: relative;
+    width: 150px;
     left: 100px;
     margin-left: -75px;
 }
