@@ -42,7 +42,7 @@ const crearDeck = () => {
     }
     // console.log( deck );
     // deck = _.shuffle( deck );
-    deck = shuffle(deck);
+    deck = shuffle(deck)
     console.log( deck );
     return deck;
 }
